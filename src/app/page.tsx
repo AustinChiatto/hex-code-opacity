@@ -50,7 +50,7 @@ export default function Home() {
   }, [setInputHex]);
 
   const hexOpacValue = opacityToHex(opacity);
-  const fullHex = `${hexActive ? '#' : ''}${hexOpacValue}${inputHex}`;
+  const fullHex = `${hexActive ? '#' : ''}${inputHex}${hexOpacValue}`;
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24">

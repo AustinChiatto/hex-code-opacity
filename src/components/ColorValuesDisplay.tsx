@@ -23,15 +23,15 @@ const ColorValuesDisplay = ({ hexValue, opacCode, fullHex, handleCopy, setHexAct
         </button>
         <button
           className="text-lg"
-          onClick={() => handleCopy(opacCode)}
-        >
-          {opacCode}
-        </button>
-        <button
-          className="text-lg"
           onClick={() => handleCopy(fullHex)}
         >
           {hexValue}
+        </button>
+        <button
+          className="text-lg"
+          onClick={() => handleCopy(opacCode)}
+        >
+          {opacCode}
         </button>
       </div>
     </section>
