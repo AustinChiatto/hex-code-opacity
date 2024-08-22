@@ -69,3 +69,23 @@ body {
   border-color: transparent;
   color: transparent;
 }
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: rotate(0) scale(1);
+  }
+  25% {
+    transform: rotate(2deg) scale(1.05);
+  }
+  50% {
+    transform: rotate(-2deg) scale(1.05);
+  }
+  75% {
+    transform: rotate(2deg) scale(1.05);
+  }
+}
+
+.shake {
+  animation: shake 600ms;
+}

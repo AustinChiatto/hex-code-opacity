@@ -3,22 +3,29 @@ type Props = {
   opacCode: string;
   fullHex: string;
   handleCopy: any; //todo: set type
+  setHexActive: any; //todo: set type
+  hexActive: boolean;
 };
 
-const ColorValuesDisplay = ({ hexValue, opacCode, fullHex, handleCopy }: Props) => {
+const ColorValuesDisplay = ({ hexValue, opacCode, fullHex, handleCopy, setHexActive, hexActive }: Props) => {
   return (
     <section className="rounded-lg bg-background flex flex-1 items-center">
       <div
-        className="h-12 w-2/5 rounded-lg"
+        className="h-12 w-2/5 rounded-lg transition-all duration-300"
         style={{ background: `#${hexValue}${opacCode}` }}
       ></div>
       <ul className="flex gap-3 flex-1 items-center justify-center">
         <li>
           <button
+            className={`text-lg pr-3 ${hexActive ? 'text-foregroudn' : 'text-muted'}`}
+            onClick={() => setHexActive((prevState: boolean) => !prevState)}
+          >
+            #
+          </button>
+          <button
             className="text-lg"
             onClick={() => handleCopy(opacCode)}
           >
-            <span className="text-muted"># </span>
             {opacCode}
           </button>
         </li>
