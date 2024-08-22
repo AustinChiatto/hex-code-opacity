@@ -4,8 +4,8 @@ import { useEffect } from 'react';
 type Props = {
   opacValue: number;
   fullHex: string;
-  setOpacity: any; //todo: add type
-  handleCopy: any; //todo: add type
+  setOpacity: React.Dispatch<React.SetStateAction<number>>;
+  handleCopy: (value: string) => void;
 };
 
 const OpacityInputs = ({ opacValue, setOpacity, fullHex, handleCopy }: Props) => {
@@ -58,7 +58,7 @@ const OpacityInputs = ({ opacValue, setOpacity, fullHex, handleCopy }: Props) =>
             <input
               type="text"
               value={opacValue}
-              onChange={(e) => setOpacity(e.target.value)}
+              onChange={(e) => setOpacity(parseInt(e.target.value, 10))}
               className="bg-transparent outline-none w-[3ch] text-right font-mono"
             />
           </div>

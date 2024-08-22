@@ -2,8 +2,8 @@ type Props = {
   hexValue: string;
   opacCode: string;
   fullHex: string;
-  handleCopy: any; //todo: set type
-  setHexActive: any; //todo: set type
+  handleCopy: (value: string) => void;
+  setHexActive: React.Dispatch<React.SetStateAction<boolean>>;
   hexActive: boolean;
 };
 
@@ -11,33 +11,29 @@ const ColorValuesDisplay = ({ hexValue, opacCode, fullHex, handleCopy, setHexAct
   return (
     <section className="rounded-lg bg-background flex flex-1 items-center">
       <div
-        className="h-12 w-2/5 rounded-lg transition-all duration-300"
+        className="h-12 w-2/5 rounded-lg"
         style={{ background: `#${hexValue}${opacCode}` }}
       ></div>
-      <ul className="flex gap-3 flex-1 items-center justify-center">
-        <li>
-          <button
-            className={`text-lg pr-3 ${hexActive ? 'text-foregroudn' : 'text-muted'}`}
-            onClick={() => setHexActive((prevState: boolean) => !prevState)}
-          >
-            #
-          </button>
-          <button
-            className="text-lg"
-            onClick={() => handleCopy(opacCode)}
-          >
-            {opacCode}
-          </button>
-        </li>
-        <li>
-          <button
-            className="text-lg"
-            onClick={() => handleCopy(fullHex)}
-          >
-            {hexValue}
-          </button>
-        </li>
-      </ul>
+      <div className="flex gap-3 flex-1 items-center justify-center">
+        <button
+          className={`text-lg ${hexActive ? 'text-foregroudn' : 'text-muted'}`}
+          onClick={() => setHexActive((prevState: boolean) => !prevState)}
+        >
+          #
+        </button>
+        <button
+          className="text-lg"
+          onClick={() => handleCopy(opacCode)}
+        >
+          {opacCode}
+        </button>
+        <button
+          className="text-lg"
+          onClick={() => handleCopy(fullHex)}
+        >
+          {hexValue}
+        </button>
+      </div>
     </section>
   );
 };
