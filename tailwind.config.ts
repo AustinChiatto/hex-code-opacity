@@ -22,6 +22,7 @@ const config: Config = {
       },
       backgroundColor: {
         background: 'hsl(var(--background))',
+        success: 'hsl(var(--success))',
         'card-background': 'hsl(var(--card-background))',
         'input-background': 'hsl(var(--input-background))',
         muted: 'hsl(var(--muted))',
@@ -43,7 +44,8 @@ const config: Config = {
       },
       fontWeight: {
         normal: '400',
-        medium: '500'
+        medium: '500',
+        bold: '700'
       }
     }
   },

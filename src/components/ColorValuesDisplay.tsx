@@ -1,12 +1,11 @@
-import { handleCopy } from '@/util/functions';
-
 type Props = {
   hexValue: string;
   opacCode: string;
   fullHex: string;
+  handleCopy: any; //todo: set type
 };
 
-const ColorValuesDisplay = ({ hexValue, opacCode, fullHex }: Props) => {
+const ColorValuesDisplay = ({ hexValue, opacCode, fullHex, handleCopy }: Props) => {
   return (
     <section className="rounded-lg bg-background flex flex-1 items-center">
       <div

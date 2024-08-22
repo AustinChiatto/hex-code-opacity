@@ -1,15 +1,14 @@
 'use client';
-
-import { handleCopy } from '@/util/functions';
 import { useEffect } from 'react';
 
 type Props = {
   opacValue: number;
   fullHex: string;
   setOpacity: any; //todo: add type
+  handleCopy: any; //todo: add type
 };
 
-const OpacityInputs = ({ opacValue, setOpacity, fullHex }: Props) => {
+const OpacityInputs = ({ opacValue, setOpacity, fullHex, handleCopy }: Props) => {
   const quickActions = Array.from({ length: 9 }, (_, i) => (i + 1) * 10);
   const displayValue = opacValue.toString().padStart(3, '0');
 
@@ -76,7 +75,7 @@ const OpacityInputs = ({ opacValue, setOpacity, fullHex }: Props) => {
             key={index}
             onMouseDown={() => setOpacity(value)}
             onMouseUp={() => handleCopy(fullHex)}
-            className="flex-1 min-w-fit text-center text-muted hover:text-foreground hover:bg-input-background rounded-md px-2 py-1"
+            className="flex-1 min-w-fit text-center text-muted hover:text-foreground hover:bg-input-background rounded-md px-2 py-1 transition-all duration-300 ease-out"
           >
             {value}
           </button>
