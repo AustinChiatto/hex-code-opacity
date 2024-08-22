@@ -20,6 +20,12 @@ const OpacityInputs = ({ opacValue, setOpacity, fullHex, handleCopy }: Props) =>
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
       const key = e.key;
+      const target = e.target as HTMLElement;
+
+      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') {
+        return;
+      }
+
       if (key >= '1' && key <= '9') {
         const value = parseInt(key, 10) * 10;
         setOpacity(value);
